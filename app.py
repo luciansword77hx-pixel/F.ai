@@ -7,7 +7,7 @@ st.title("🎬 f.ai - Fictional AI")
 st.caption("Welcome to f.ai! Talk to your favorite fictional characters.")
 
 # 2. API Key Setup
-GROQ_API_KEY = ""
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 # 3. GOJO HEART-RACING CHARACTER MATRIX 
 CHARACTER_NAME = "Satoru Gojo"
