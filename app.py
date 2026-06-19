@@ -90,14 +90,12 @@ st.markdown(
         z-index: 3;
         top: 0;
         left: 0;
-    }
-
-    .gojo_left_leg {
+        .gojo_left_leg {
         width: 42%;
         height: auto;
         z-index: 2;
-        top: 24%; /* Pulled up to attach cleanly to the waist */
-        left: 42%; /* Swapped to the correct side */
+        top: 20%; /* Moved up to connect into the body torso */
+        left: 15%; /* Moved out to the left side */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -106,8 +104,8 @@ st.markdown(
         width: 44%;
         height: auto;
         z-index: 1;
-        top: 24%; /* Pulled up to attach cleanly to the waist */
-        left: 20%; /* Swapped to the correct side */
+        top: 20%; /* Moved up to connect into the body torso */
+        left: 45%; /* Moved out to the right side */
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; 
     }
