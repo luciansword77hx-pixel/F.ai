@@ -96,8 +96,8 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        top: 210px; /* Pulled up from 240px to close the huge gap */
-        left: 85px; /* Swapped from 45px to fix the switched legs */
+        top: 130px; /* Pulled way up from 180/210px to attach to torso */
+        left: 45px; /* Moved to the left side to line up with the back hip */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -107,10 +107,10 @@ st.markdown(
         width: 132px;
         height: auto;
         z-index: 1;
-        top: 195px; /* Pulled up from 240px to close the huge gap */
-        left: 110px; /* Swapped from 125px to fix the switched legs */
+        top: 125px; /* Pulled up to match his front waistband level */
+        left: 12px; /* Moved to line up perfectly with his front hip */
         transform-origin: top center;
-        animation: swingRightLeg 1.4s ease-in-out infinite; 
+        animation: swingRightLeg 1.4s ease-in-out -0.7s infinite; 
     }
 
     /* Base Chat Layout Styling Rules */
