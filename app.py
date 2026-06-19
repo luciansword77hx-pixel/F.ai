@@ -42,11 +42,11 @@ st.markdown(
     /* Confident Strides: Pivot from top center of thigh sockets */
     @keyframes swingLeftLeg {
         0%, 100% { transform: rotateZ(10deg); }
-        50% { transform: rotateZ(-11deg); }
+        50% { transform: rotateZ(-12deg); }
     }
     @keyframes swingRightLeg {
         0%, 100% { transform: rotateZ(-11deg); }
-        50% { transform: rotateZ(10deg); }
+        50% { transform: rotateZ(11deg); }
     }
 
     @keyframes splashSequence {
