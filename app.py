@@ -97,7 +97,7 @@ st.markdown(
         height: auto;
         z-index: 2;
         top: 130px; 
-        left: 45px; /*FIX: Shifts only the left leg inward to connect back to the body */
+        left: 36px; /* FINAL ADJUSTMENT: Moved slightly left to eliminate the inner overlap */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
