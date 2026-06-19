@@ -16,7 +16,7 @@ gojo_torso = get_base64_image("gojo_torso.png")
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
-    r"""
+    '''
     <style>
     /* 1. Define Standard Chat Layout Elements */
     @keyframes fadeInUpmessage {
@@ -113,7 +113,7 @@ st.markdown(
 
 /* 3. Background Settings */
      .stApp {
-        background-image: url(" + bg_base64 + ") !important;
+        background-image: url("data:image/png;base64,' + bg_base64 + '") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
@@ -153,7 +153,7 @@ st.markdown(
             <img class="body-part gojo-torso" src="data:image/png;base64,{base64.b64encode(open('gojo_torso.png', 'rb').read()).decode()}" />
         </div>
     </div>
-    """,
+    ''',
     unsafe_allow_html=True,
 )
 
