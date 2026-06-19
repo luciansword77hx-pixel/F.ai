@@ -14,7 +14,19 @@ st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
     f"""
     <style>
-    /* Changes background to your local Gojo bg.png image */
+    /* 1. Define the Fade-In Animation Rules */
+    @keyframes fadeInUpmessage {{
+        from {{
+            opacity: 0;
+            transform: translateY(12px);
+        }}
+        to {{
+            opacity: 1;
+            transform: translateY(0);
+        }}
+    }}
+
+    /* 2. Background Settings (YOUR BG.PNG FILE SITS HERE!) */
     .stApp {{
         background-image: url("data:image/png;base64,{bg_base64}") !important;
         background-size: cover !important;
@@ -22,11 +34,13 @@ st.markdown(
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
     }}
-    /* Styles the chat message boxes to be solid black */
+
+    /* 3. Black Chat Boxes + Fade-In Animation Applied */
     .stChatMessage {{
         background-color: #000000 !important;
         border-radius: 12px;
         border: 1px solid #3d3255;
+        animation: fadeInUpmessage 0.4s ease-out forwards;
     }}
     </style>
     """,
