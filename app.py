@@ -14,7 +14,7 @@ st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
     f"""
     <style>
-    /* 1. Define Animation Rules */
+    /* 1. Define Standard Chat Elements */
     @keyframes fadeInUpmessage {{
         from {{ opacity: 0; transform: translateY(12px); }}
         to {{ opacity: 1; transform: translateY(0); }}
@@ -26,16 +26,64 @@ st.markdown(
         100% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
     }}
 
-    /* 2. Background Settings */
+    /* Intro Screen Sequence Cover */
+    @keyframes splashSequence {{
+        0% {{ opacity: 1; visibility: visible; pointer-events: auto; }}
+        92% {{ opacity: 1; }}
+        100% {{ opacity: 0; visibility: hidden; pointer-events: none; }}
+    }}
+
+    /* Programmed Walking Loop: Moves his whole body position forward and simulates steps */
+    @keyframes gojoPhysicalWalk {{
+        0% {{ left: -300px; transform: translateY(-50%) rotate(0deg); }}
+        /* Micro-tilts left and right simulate weight shifting during walking steps */
+        25% {{ transform: translateY(-50.5%) rotate(-2deg); }}
+        50% {{ transform: translateY(-50%) rotate(2deg); }}
+        75% {{ transform: translateY(-50.5%) rotate(-2deg); }}
+        100% {{ left: 115%; transform: translateY(-50%) rotate(0deg); }}
+    }}
+
+    /* 2. Splash Overlay Canvas Layout */
+    .gojo-splash-overlay {{
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background-color: #0d0b11; 
+        z-index: 999999;
+        animation: splashSequence 6.0s ease-in-out forwards;
+    }}
+
+    /* Container holding the photo assets */
+    .gojo-walker-container {{
+        position: absolute;
+        top: 50%;
+        height: 80vh;
+        width: auto;
+        animation: gojoPhysicalWalk 6.0s linear forwards;
+    }}
+
+    .gojo-splash-img {{
+        height: 100%;
+        width: auto;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform-origin: bottom center;
+        
+        /* High-Definition image rendering settings */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }}
+
+    /* 3. Background Settings */
     .stApp {{
         background-image: url("data:image/png;base64,{bg_base64}") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
-        }}
+    }}
 
-    /* 3. Black Chat Boxes + Fade-In Animation */
+    /* 4. Black Chat Boxes + Fade-In Animation */
     .stChatMessage {{
         background-color: #000000 !important;
         border-radius: 12px;
@@ -43,12 +91,38 @@ st.markdown(
         animation: fadeInUpmessage 0.4s ease-out forwards;
     }}
 
-    /* 4. Purple Pulsing Glow for Title Text */
+    /* 5. Purple Pulsing Glow for Title Text */
     h1 {{
         color: #ffffff !important;
         animation: purpleGlow 3s infinite ease-in-out !important;
     }}
     </style>
+    <!-- HTML & Programmed Layout to load your image and animate the walking stride -->
+    <div class="gojo-splash-overlay">
+        <div class="gojo-walker-container">
+            <img class="gojo-splash-img" id="gojoAsset" src="data:image/png;base64,{base64.b64encode(open('gojo_body.png', 'rb').read()).decode()}" />
+        </div>
+    </div>
+
+    <script>
+    // Programmatic skeleton limb distortion logic to simulate actual leg/hip strides
+    const gojo = document.getElementById('gojoAsset');
+    let frame = 0;
+    
+    function animateWalk() {{
+        frame += 0.15;
+        // Uses mathematical sine waves to rhythmically squash and stretch the image base, making his legs swing
+        const scaleY = 1 + Math.sin(frame) * 0.02;
+        const skewX = Math.cos(frame) * 3; 
+        
+        if (gojo) {{
+            gojo.style.transform = scaleY(${{scaleY}}) skewX(${{skewX}}deg);
+        }}
+        requestAnimationFrame(animateWalk);
+    }}
+    // Triggers the coded animation cycle on page load
+    setTimeout(animateWalk, 100);
+    </script>
     """,
     unsafe_allow_html=True,
 )
