@@ -60,14 +60,14 @@ st.markdown(
         animation: splashSequence 6.5s ease-in-out forwards;
     }}
 
-/* The assembled master puppet framework body container */
-    .gojo-puppet-container {{
-        position: absolute;
-        top: 45%; left: 0;
-        height: 75vh;
-        width: 300px;
-        animation: gojoWalkAcross 6.5s linear forwards;
-    }}
+<!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
+    <div class="gojo-splash-overlay">
+        <div class="gojo-puppet-container">
+            <img class="body-part gojo-left-leg" src="data:image/png;base64,{gojo_left}" />
+            <img class="body-part gojo-right-leg" src="data:image/png;base64,{gojo_right}" />
+            <img class="body-part gojo-torso" src="data:image/png;base64,{gojo_torso}" />
+        </div>
+    </div>
 
     /* Individual body layer attachments */
     .body-part {{
