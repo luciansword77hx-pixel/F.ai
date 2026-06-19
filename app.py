@@ -6,15 +6,15 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-bg_base64 = get_base64_image("bg.png")
-
-gojo_left = get_base64_image("gojo_left_leg.png")
-gojo_right = get_base64_image("gojo_right_leg.png")
-gojo_torso = get_base64_image("gojo_torso.png")
-
 # 1. Page Configuration
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
+
+# Load the raw images as base64 string data completely independent of layout text
+gojo_left_data = get_base64_image("gojo_left_leg.png")
+gojo_right_data = get_base64_image("gojo_right_leg.png")
+gojo_torso_data = get_base64_image("gojo_torso.png")
+
 st.markdown(
     '''
     <style>
@@ -130,12 +130,12 @@ st.markdown(
     <!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
-            <img class="body-part gojo_left_leg" src="data:image/png;base64,{left_leg_data}" />
-            <img class="body-part gojo_right_leg" src="data:image/png;base64,{right_leg_data}" />
-            <img class="body-part gojo_torso" src="data:image/png;base64,{torso_data}" />
+            <img class="body-part gojo_left_leg" src="data:image/png;base64, ''' + gojo_left_data + '''" />
+            <img class="body-part gojo_right_leg" src="data:image/png;base64, ''' + gojo_right_data + '''" />
+            <img class="body-part gojo_torso" src="data:image/png;base64, ''' + gojo_torso_data + '''" />
         </div>
     </div>
-    '''.format(left_leg_data=gojo_left, right_leg_data=gojo_right, torso_data=gojo_torso),
+    ''',
     unsafe_allow_html=True,
 )
 
