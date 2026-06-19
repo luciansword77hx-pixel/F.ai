@@ -8,20 +8,21 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url("https://justwatch.com");
+        background-image: url("https://imgur.com");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
     .stChatMessage {
-        background-color: rgba(14, 17, 23, 0.😎 !important;
+        background-color: rgba(14, 17, 23, 0.85) !important;
         border-radius: 10px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 st.caption("Hello there , your Gojo is waitin for ya.")
 
 # 2. API Key Setup
@@ -93,6 +94,6 @@ if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
     
     ai_response = completion.choices[0].message.content
     
-    with st.chat_message("assistant", avatar="https://justwatch.com"):
+    with st.chat_message("assistant", avatar="https://imgur.com"):
         st.write(ai_response)
     st.session_state.messages.append({"role": "assistant", "content": ai_response})
