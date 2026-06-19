@@ -137,9 +137,9 @@ st.markdown(
     <!-- Unified Puppet Assembly Markup Structure -->
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
+            <img class="body-part gojo_torso" src="data:image/png;base64, ''' + gojo_torso_data + '''" />
             <img class="body-part gojo_left_leg" src="data:image/png;base64, ''' + gojo_left_data + '''" />
             <img class="body-part gojo_right_leg" src="data:image/png;base64, ''' + gojo_right_data + '''" />
-            <img class="body-part gojo_torso" src="data:image/png;base64, ''' + gojo_torso_data + '''" />
         </div>
     </div>
     ''',
