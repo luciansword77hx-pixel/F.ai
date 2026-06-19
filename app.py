@@ -14,33 +14,39 @@ st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
     f"""
     <style>
-    /* 1. Define the Fade-In Animation Rules */
+    /* 1. Define Animation Rules */
     @keyframes fadeInUpmessage {{
-        from {{
-            opacity: 0;
-            transform: translateY(12px);
-        }}
-        to {{
-            opacity: 1;
-            transform: translateY(0);
-        }}
+        from {{ opacity: 0; transform: translateY(12px); }}
+        to {{ opacity: 1; transform: translateY(0); }}
+    }}
+    
+    @keyframes purpleGlow {{
+        0% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
+        50% {{ text-shadow: 0 0 20px #9D4EDD, 0 0 35px #9D4EDD, 0 0 50px #7B2CBF; }}
+        100% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
     }}
 
-    /* 2. Background Settings (YOUR BG.PNG FILE SITS HERE!) */
+    /* 2. Background Settings */
     .stApp {{
         background-image: url("data:image/png;base64,{bg_base64}") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
-    }}
+        }}
 
-    /* 3. Black Chat Boxes + Fade-In Animation Applied */
+    /* 3. Black Chat Boxes + Fade-In Animation */
     .stChatMessage {{
         background-color: #000000 !important;
         border-radius: 12px;
         border: 1px solid #3d3255;
         animation: fadeInUpmessage 0.4s ease-out forwards;
+    }}
+
+    /* 4. Purple Pulsing Glow for Title Text */
+    h1 {{
+        color: #ffffff !important;
+        animation: purpleGlow 3s infinite ease-in-out !important;
     }}
     </style>
     """,
