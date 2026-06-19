@@ -96,7 +96,7 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        top: 142px; 
+        top: 160px; 
         left: 55px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
@@ -104,10 +104,10 @@ st.markdown(
 
     /* Right leg attached under the torso coat tail */
     .gojo_right_leg {
-        width: 142px;
+        width: 132px;
         height: auto;
         /* SWAPED: This is now positioned on the screen's right side  */
-        top: 137px; 
+        top: 160px; 
         left: 42px; 
         transform-origin: top center;
         /* keeps the negtive dely so they still alternate perfectly */
