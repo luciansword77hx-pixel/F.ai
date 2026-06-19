@@ -41,12 +41,12 @@ st.markdown(
 
     /* Confident Strides: Pivot from top center of thigh sockets */
     @keyframes swingLeftLeg {
-        0%, 100% { transform: rotate(14deg); }
-        50% { transform: rotate(-14deg); }
+        0%, 100% { transform: rotateZ(-15deg); }
+        50% { transform: rotateZ(15deg); }
     }
     @keyframes swingRightLeg {
-        0%, 100% { transform: rotate(-14deg); }
-        50% { transform: rotate(14deg); }
+        0%, 100% { transform: rotateZ(15deg); }
+        50% { transform: rotateZ(-14deg); }
     }
 
     @keyframes splashSequence {
@@ -96,8 +96,9 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        top: 130px; /* Pulled way up from 180/210px to attach to torso */
-        left: 45px; /* Moved to the left side to line up with the back hip */
+        /*SWAPED: This is now positioned on the screen's left side*/
+        top: 125px; 
+        left: 12px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -106,10 +107,11 @@ st.markdown(
     .gojo_right_leg {
         width: 132px;
         height: auto;
-        z-index: 1;
-        top: 125px; /* Pulled up to match his front waistband level */
-        left: 12px; /* Moved to line up perfectly with his front hip */
+        /* SWAPED: This is now positioned on the screen's right side  */
+        top: 130px; 
+        left: 42px; 
         transform-origin: top center;
+        /* keeps the negtive dely so they still alternate perfectly */
         animation: swingRightLeg 1.4s ease-in-out -0.7s infinite; 
     }
 
