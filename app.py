@@ -13,7 +13,7 @@ st.markdown(
     }
     /* Styles the chat message boxes to match the Gojo background */
     .stChatMessage {
-        background-color: #1a1525 !important;
+        background-color: #000000 !important;
         border-radius: 12px;
         border: 1px solid #3d3255;
     }
