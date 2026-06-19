@@ -73,9 +73,9 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     if message["role"] != "system":
         gojo_img = "https://justwatch.com"
-        avatar_icon = gojo_img if message["role"] == "assistant" else "🌷"
-        with st.chat_message(message["role"], avatar=avatar_icon):
-            st.write(message["content"])
+        avatar_icon = gojo_img if message["role"] == "assistant" else "👤"
+             with st.chat_message(message["role"], avatar=avatar_icon):
+                  st.write(message["content"])
             
 # User Chat Input Box
 if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
