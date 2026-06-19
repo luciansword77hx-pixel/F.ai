@@ -111,7 +111,7 @@ st.markdown(
         left: 32px; 
         transform-origin: top center;
         /* keeps the negtive dely so they still alternate perfectly */
-        animation: swingRightLeg 1.2s ease-in-out -0.6s infinite; 
+        animation: swingRightLeg 1.2s infinite; 
     }
 
     /* Base Chat Layout Styling Rules */
