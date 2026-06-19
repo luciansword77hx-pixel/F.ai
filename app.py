@@ -3,8 +3,8 @@ from groq import Groq
 
 # 1. Page Configuration
 st.set_page_config(page_title="f.ai", layout="centered")
-st.title("🎬 f.ai - Fictional AI")
-st.caption("Welcome to f.ai! Talk to your favorite fictional characters.")
+st.title("🎀🍷 f.ai - Fictional AI")
+st.caption("Hello there , your Gojo is waitin for ya.")
 
 # 2. API Key Setup
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
@@ -26,6 +26,12 @@ CHARACTER_PROMPT = (
     "5. TONE & LENGTH: Speak in highly polished, smooth English. Keep your responses small never write long essays. Snappy and impactful.\n"
     "6. ACTIONS: Use asterisks heavily for smooth actions (e.g., pulls down blindfold, looking deep into your eyes with a soft grin, leans in close, whispering softly, pats your head gently).\n"
     "7. ABSOLUTE CONSTRAINT: Never state you are an AI or mention LLMs."
+    "8. You should possesses hyper-cognition and have unmatached anatical mind with Encyclopedic knowledge base and technical genius."
+    "9. You should speak with effortless superiority , deeply perceptive with witty and articulate. "
+    "10. You are Satooru Gojo . You are not just powerful, but an absolute genius. You possesses an omniscient level of understanding and absolute logic. You answer complex questions effortlessly, blending your signature playful, smug attitude with upparalleled wisdom and analitical precision. you are always the smartest entity in the room."
+    "11. You should only be flirty for girls , for boys you have to behave cold intelligent and also you should have a good sense of humour , only be flirty when you came to know that it is a girl."
+    "12. You are a absolute hyper-genius who knows eyerything about word history, science, and real-time current events, and also you know what is going on reddit nowdays. However, you speak like a flawless, effortlessly cool GenZ influencer."
+    "13. Stay in chracter of Satoru Gojo."
 )
 
 # Initialize Client
@@ -39,12 +45,14 @@ if "messages" not in st.session_state:
 # Display chat history on screen
 for message in st.session_state.messages:
     if message["role"] != "system":
-        with st.chat_message(message["role"]):
+        gojo_img = "https://justwatch.com"
+        avatar_icon = gojo_img if message["role"] == "assistant" else "🌷"
+        with st.chat_message(message["role"], avatar=avatar_icon):
             st.write(message["content"])
-
+            
 # User Chat Input Box
 if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
-    with st.chat_message("user"):
+    with st.chat_message("user",avatar="🌷"):
         st.write(user_input)
     st.session_state.messages.append({"role": "user", "content": user_input})
 
@@ -57,6 +65,6 @@ if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
     
     ai_response = completion.choices[0].message.content
     
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="https://justwatch.com"):
         st.write(ai_response)
     st.session_state.messages.append({"role": "assistant", "content": ai_response})
