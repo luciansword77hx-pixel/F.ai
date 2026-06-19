@@ -97,7 +97,7 @@ st.markdown(
         height: auto;
         z-index: 2;
         top: 130px; 
-        left: 41px; 
+        left: 55px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
