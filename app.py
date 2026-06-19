@@ -104,7 +104,7 @@ st.markdown(
 
     /* Right leg attached under the torso coat tail */
     .gojo_right_leg {
-        width: 126px;
+        width: 120px;
         height: auto;
         /* SWAPED: This is now positioned on the screen's right side  */
         top: 160px; 
