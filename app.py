@@ -46,7 +46,7 @@ st.markdown(
         100% { transform: translateX(115vw); opacity: 0; }
     }
 
-    /* Programmed Leg Strides: Swings legs back and forth smoothly from the hip joints */
+    /* Programmed Leg Strides */
     @keyframes swingLeftLeg {
         0%, 100% { transform: rotate(14deg); }
         50% { transform: rotate(-14deg); }
@@ -85,7 +85,7 @@ st.markdown(
         image-rendering: crisp-edges !important;
     }
 
-    .gojo-torso {
+    .gojo_torso {
         width: 100%;
         height: auto;
         z-index: 3;
@@ -93,21 +93,21 @@ st.markdown(
         left: 0;
     }
 
-    .gojo-left-leg {
+    .gojo_left_leg {
         width: 42%;
         height: auto;
         z-index: 2;
-        top: 48%; 
+        top: 35%; 
         left: 20%;
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
 
-    .gojo-right-leg {
+    .gojo_right_leg {
         width: 44%;
         height: auto;
         z-index: 1;
-        top: 48%; 
+        top: 35%; 
         left: 42%;
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; 
@@ -131,12 +131,12 @@ st.markdown(
     <!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
-            <img class="body-part gojo-left-leg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAAE6CAYAAACLebkyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAHuBSURBVHhe7b0HsC3ZdZ63O5x8zs3x5TA5IM1gABJhIAIEQAISKQmgLNOiZJXLtMuSqlh2lVUulwa07DJtlqqsMk1bVayyKYmEiKFFUoQBCkMQHCINwgCDweT4cro5nJy8vrXPurffmfsiocG9b/of7Nfdu3fv7ovz9dprxw5+49d+rT8yNupK5RFXGqm4yuiIy+RzLowyLpvNumKp4jbrNReGoev1nAuCwBVzeddqtV273XbFYsF1Xd+Ffed6gXPdVsetrq+7laUl3W6sbrinn33GXTp/wU3Nzrn3PPhul5NrTrz6mvvhD3/gXn31VVer1Vy3Sy5dd9ttx90nP/mz7j3veY8bHau4drPlCnK/Rr16aWlh8Xe+9Cd/8n/96q/92itObich1VtM0V//+E9/Jg4DATJwkQCXz2RcoZh3RYE2zkZuY2PdVaubLp/LuowAHIaRCyKBVwCNshnXl22313WBAN1qdxTAv/jaV93XvvZ19+zzL7infvAD99IrL7vTZ865U6dPuxdefNF9/6mn3Esvv+wuXLrklldWXbPddNnY55WV+xw+fMQdOnRY7pl3vW5P8pZni+LM5uZaNDs79/LTzz576uLFi+3B35DqLaTo5z/yoc9srK+65aVLbm1tydUEzk6n5UI52et1XCaOXHVzQ2DNCziRWNWO64g1bLZaalGr1aprdjpyXc29fvK0+853vuu+/s0n3GuvveaWVtbk2qpriDWuVR" />
-            <img class="body-part gojo-right-leg" src="data:image/png;base64,{gojo_right}" />
-            <img class="body-part gojo-torso" src="data:image/png;base64,{gojo_torso}" />
+            <img class="body-part gojo_left_leg" src="data:image/png;base64,%s" />
+            <img class="body-part gojo_right_leg" src="data:image/png;base64,%s" />
+            <img class="body-part gojo_torso" src="data:image/png;base64,%s" />
         </div>
     </div>
-    ''',
+    ''' % (gojo_left, gojo_right, gojo_torso),
     unsafe_allow_html=True,
 )
 
