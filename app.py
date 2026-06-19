@@ -113,7 +113,7 @@ st.markdown(
 
 /* 3. Background Settings */
     .stApp {{
-        background-image: url("data:image/png;base64,{bg_base64}") !important;
+        background-image: url("data:image/png;base64,PASTE_YOUR_ACTUAL_BG_BASE64_TEXT_HERE") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
