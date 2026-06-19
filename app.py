@@ -7,16 +7,15 @@ st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
     """
     <style>
+    /* Changes background to a sleek Gojo dark purple theme */
     .stApp {
-        background-image: url("https://imgur.com");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-color: #1a1525 !important;
     }
+    /* Styles the chat message boxes nicely */
     .stChatMessage {
-        background-color: rgba(14, 17, 23, 0.85) !important;
-        border-radius: 10px;
+        background-color: #251f35 !important;
+        border-radius: 12px;
+        border: 1px solid #3d3255;
     }
     </style>
     """,
