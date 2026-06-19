@@ -15,10 +15,10 @@ gojo_left_data = get_base64_image("gojo_left_leg.png")
 gojo_right_data = get_base64_image("gojo_right_leg.png")
 gojo_torso_data = get_base64_image("gojo_torso.png")
 
-st.markdown(
+ st.markdown(
     '''
     <style>
-    /* 1. Define Standard Chat Layout Elements */
+    /* 1. Standard Layout Animations */
     @keyframes fadeInUpmessage {
         from { opacity: 0; transform: translateY(12px); }
         to { opacity: 1; transform: translateY(0); }
@@ -30,22 +30,15 @@ st.markdown(
         100% { text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }
     }
 
-    /* Intro Overlay Screen Master Sequence */
-    @keyframes splashSequence {
-        0% { opacity: 1; visibility: visible; pointer-events: auto; }
-        90% { opacity: 1; }
-        100% { opacity: 0; visibility: hidden; pointer-events: none; }
-    }
-
-    /* Moves the entire compiled Gojo puppet across your screen canvas */
+    /* Master walking translation across viewport canvas */
     @keyframes gojoWalkAcross {
-        0% { transform: translateX(-100vw); opacity: 0; }
+        0% { transform: translateX(-350px); opacity: 0; }
         12% { opacity: 1; }
         85% { opacity: 1; }
         100% { transform: translateX(115vw); opacity: 0; }
     }
 
-    /* Programmed Leg Strides */
+    /* Confident Strides: Pivot from top center of thigh sockets */
     @keyframes swingLeftLeg {
         0%, 100% { transform: rotate(14deg); }
         50% { transform: rotate(-14deg); }
@@ -55,7 +48,13 @@ st.markdown(
         50% { transform: rotate(14deg); }
     }
 
-    /* 2. Splash Overlay Setup */
+    @keyframes splashSequence {
+        0% { opacity: 1; visibility: visible; pointer-events: auto; }
+        90% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
+
+    /* Splash Screen Canvas Layout Box */
     .gojo-splash-overlay {
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
@@ -64,53 +63,64 @@ st.markdown(
         animation: splashSequence 6.5s ease-in-out forwards;
     }
 
-    /* The assembled master puppet framework body container */
+    /* Assembled Master Rig Node */
     .gojo-puppet-container {
         position: absolute;
-        top: 45%;
-        height: 75vh;
+        top: 25%;
+        height: 500px;
         width: 300px;
         left: 0;
         animation: gojoWalkAcross 6.5s linear forwards;
     }
 
-    /* Individual body layer attachments */
     .body-part {
         position: absolute;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
-        image-rendering: -webkit-optimize-contrast !important;
         image-rendering: crisp-edges !important;
     }
 
+    /* Torso Layer Base Alignment */
     .gojo_torso {
         width: 100%;
         height: auto;
         z-index: 3;
         top: 0;
         left: 0;
-        .gojo_left_leg {
-        width: 42%;
+    }
+
+    /* Left leg attached under the torso coat tail */
+    .gojo_left_leg {
+        width: 126px;
         height: auto;
         z-index: 2;
-        top: 20%; /* Moved up to connect into the body torso */
-        left: 15%; /* Moved out to the left side */
+        top: 240px; 
+        left: 45px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
 
+    /* Right leg attached under the torso coat tail */
     .gojo_right_leg {
-        width: 44%;
+        width: 132px;
         height: auto;
         z-index: 1;
-        top: 20%; /* Moved up to connect into the body torso */
-        left: 45%; /* Moved out to the right side */
+        top: 240px; 
+        left: 125px; 
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; 
     }
 
-    /* 4. Chat Boxes Styling */
+    /* Base Chat Layout Styling Rules */
+    .stApp {
+        background-image: url("data:image/png;base64, ''' + bg_base64 + '''") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }
+
     .stChatMessage {
         background-color: #000000 !important;
         border-radius: 12px;
@@ -118,14 +128,13 @@ st.markdown(
         animation: fadeInUpmessage 0.4s ease-out forwards;
     }
 
-    /* 5. Title Styling */
     h1 {
         color: #ffffff !important;
         animation: purpleGlow 3s infinite ease-in-out !important;
     }
     </style>
 
-    <!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
+    <!-- Unified Puppet Assembly Markup Structure -->
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
             <img class="body-part gojo_left_leg" src="data:image/png;base64, ''' + gojo_left_data + '''" />
