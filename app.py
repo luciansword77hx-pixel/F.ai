@@ -85,7 +85,7 @@ st.markdown(
         image-rendering: crisp-edges !important;
     }
 
-    .gojo_torso {
+    .gojo-torso {
         width: 100%;
         height: auto;
         z-index: 3;
@@ -93,7 +93,7 @@ st.markdown(
         left: 0;
     }
 
-    .gojo_left_leg {
+    .gojo-left-leg {
         width: 42%;
         height: auto;
         z-index: 2;
@@ -103,7 +103,7 @@ st.markdown(
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
 
-    .gojo_right_leg {
+    .gojo-right-leg {
         width: 44%;
         height: auto;
         z-index: 1;
