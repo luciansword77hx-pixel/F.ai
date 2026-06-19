@@ -10,7 +10,8 @@ def get_base64_image(image_path):
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
 
-# Load the raw images as base64 string data completely independent of layout text
+# --- PRE-LOAD ALL ASSETS ---
+bg_base64 = get_base64_image("bg.png") # <-- MAKE SURE THIS LINE EXISTS!
 gojo_left_data = get_base64_image("gojo_left_leg.png")
 gojo_right_data = get_base64_image("gojo_right_leg.png")
 gojo_torso_data = get_base64_image("gojo_torso.png")
