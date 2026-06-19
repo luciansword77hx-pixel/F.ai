@@ -16,53 +16,53 @@ gojo_torso = get_base64_image("gojo_torso.png")
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
-    f"""
+    r"""
     <style>
     /* 1. Define Standard Chat Layout Elements */
-    @keyframes fadeInUpmessage {{
-        from {{ opacity: 0; transform: translateY(12px); }}
-        to {{ opacity: 1; transform: translateY(0); }}
-    }}
+    @keyframes fadeInUpmessage {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
     
-    @keyframes purpleGlow {{
-        0% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
-        50% {{ text-shadow: 0 0 20px #9D4EDD, 0 0 35px #9D4EDD, 0 0 50px #7B2CBF; }}
-        100% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
-    }}
+    @keyframes purpleGlow {
+        0% { text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }
+        50% { text-shadow: 0 0 20px #9D4EDD, 0 0 35px #9D4EDD, 0 0 50px #7B2CBF; }
+        100% { text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }
+    }
 
     /* Intro Overlay Screen Master Sequence */
-    @keyframes splashSequence {{
-        0% {{ opacity: 1; visibility: visible; pointer-events: auto; }}
-        90% {{ opacity: 1; }}
-        100% {{ opacity: 0; visibility: hidden; pointer-events: none; }}
-    }}
+    @keyframes splashSequence {
+        0% { opacity: 1; visibility: visible; pointer-events: auto; }
+        90% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
 
 /* Moves the entire compiled Gojo puppet across your screen canvas */
-    @keyframes gojoWalkAcross {{
-        0% {{ transform: translateX(-100vw); opacity: 0; }}
-        12% {{ opacity: 1; }}
-        85% {{ opacity: 1; }}
-        100% {{ transform: translateX(115vw); opacity: 0; }}
-    }}
+    @keyframes gojoWalkAcross {
+        0% { transform: translateX(-100vw); opacity: 0; }
+        12% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { transform: translateX(115vw); opacity: 0; }
+    }
 
     /* Programmed Leg Strides: Swings legs back and forth smoothly from the hip joints */
-    @keyframes swingLeftLeg {{
-        0%, 100% {{ transform: rotate(14deg); }}
-        50% {{ transform: rotate(-14deg); }}
-    }}
-    @keyframes swingRightLeg {{
-        0%, 100% {{ transform: rotate(-14deg); }}
-        50% {{ transform: rotate(14deg); }}
-    }}
+    @keyframes swingLeftLeg {
+        0%, 100% { transform: rotate(14deg); }
+        50% { transform: rotate(-14deg); }
+    }
+    @keyframes swingRightLeg {
+        0%, 100% { transform: rotate(-14deg); }
+        50% { transform: rotate(14deg); }
+    }
 
     /* 2. Splash Overlay Setup */
-    .gojo-splash-overlay {{
+    .gojo-splash-overlay {
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
         background-color: #0d0b11; 
         z-index: 999999;
         animation: splashSequence 6.5s ease-in-out forwards;
-    }}
+    }
 
 <!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
     <div class="gojo-splash-overlay">
@@ -74,24 +74,24 @@ st.markdown(
     </div>
 
     /* Individual body layer attachments */
-    .body-part {{
+    .body-part {
         position: absolute;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
         image-rendering: -webkit-optimize-contrast !important;
         image-rendering: crisp-edges !important;
-    }}
+    }
 
-    .gojo-torso {{
+    .gojo-torso {
         width: 100%;
         height: auto;
         z-index: 3;
         top: 0;
         left: 0;
-    }}
+    }
 
-.gojo-left-leg {{
+.gojo-left-leg {
         width: 42%;
         height: auto;
         z-index: 2;
@@ -99,9 +99,9 @@ st.markdown(
         left: 20%;
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; /* Slow confident walk timing */
-    }}
+    }
 
-    .gojo-right-leg {{
+    .gojo-right-leg {
         width: 44%;
         height: auto;
         z-index: 1;
@@ -109,16 +109,16 @@ st.markdown(
         left: 42%;
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; /* Slow confident walk timing */
-    }}
+    }
 
 /* 3. Background Settings */
-    .stApp {{
-        background-image: url("data:image/png;base64,PASTE_YOUR_ACTUAL_BG_BASE64_TEXT_HERE") !important;
+     .stApp {
+        background-image: url(" + bg_base64 + ") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
-    }}
+    }
 
     /* 4. Chat Boxes Styling */
     .stChatMessage {{
@@ -126,17 +126,14 @@ st.markdown(
         border-radius: 12px;
         border: 1px solid #3d3255;
         animation: fadeInUpmessage 0.4s ease-out forwards;
-    }}
+    }
 
     /* 5. Title Styling */
     h1 {{
         color: #ffffff !important;
         animation: purpleGlow 3s infinite ease-in-out !important;
-    }}
+    }
     </style>
-    """ 
-    + 
-    """
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
             <img class="body-part gojo-left-leg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAAE6CAYAAACLebkyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAHuBSURBVHhe7b0HsC3ZdZ63O5x8zs3x5TA5IM1gABJhIAIEQAISKQmgLNOiZJXLtMuSqlh2lVUulwa07DJtlqqsMk1bVayyKYmEiKFFUoQBCkMQHCINwgCDweT4cro5nJy8vrXPurffmfsiocG9b/of7Nfdu3fv7ovz9dprxw5+49d+rT8yNupK5RFXGqm4yuiIy+RzLowyLpvNumKp4jbrNReGoev1nAuCwBVzeddqtV273XbFYsF1Xd+Ffed6gXPdVsetrq+7laUl3W6sbrinn33GXTp/wU3Nzrn3PPhul5NrTrz6mvvhD3/gXn31VVer1Vy3Sy5dd9ttx90nP/mz7j3veY8bHau4drPlCnK/Rr16aWlh8Xe+9Cd/8n/96q/92itObich1VtM0V//+E9/Jg4DATJwkQCXz2RcoZh3RYE2zkZuY2PdVaubLp/LuowAHIaRCyKBVwCNshnXl22313WBAN1qdxTAv/jaV93XvvZ19+zzL7infvAD99IrL7vTZ865U6dPuxdefNF9/6mn3Esvv+wuXLrklldWXbPddNnY55WV+xw+fMQdOnRY7pl3vW5P8pZni+LM5uZaNDs79/LTzz576uLFi+3B35DqLaTo5z/yoc9srK+65aVLbm1tydUEzk6n5UI52et1XCaOXHVzQ2DNCziRWNWO64g1bLZaalGr1aprdjpyXc29fvK0+853vuu+/s0n3GuvveaWVtbk2qpriDWuVR" />
