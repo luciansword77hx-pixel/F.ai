@@ -15,7 +15,8 @@ gojo_torso = get_base64_image("gojo_torso.png")
 # 1. Page Configuration
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
- st.markdown(
+
+st.markdown(
     '''
     <style>
     /* 1. Define Standard Chat Layout Elements */
