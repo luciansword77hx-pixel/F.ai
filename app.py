@@ -8,6 +8,10 @@ def get_base64_image(image_path):
 
 bg_base64 = get_base64_image("bg.png")
 
+gojo_left = get_base64_image("gojo_left_leg.png")
+gojo_right = get_base64_image("gojo_right_leg.png")
+gojo_torso = get_base64_image("gojo_torso.png")
+
 # 1. Page Configuration
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
