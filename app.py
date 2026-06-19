@@ -130,12 +130,12 @@ st.markdown(
     <!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
     <div class="gojo-splash-overlay">
         <div class="gojo-puppet-container">
-            <img class="body-part gojo_left_leg" src="data:image/png;base64,%s" />
-            <img class="body-part gojo_right_leg" src="data:image/png;base64,%s" />
-            <img class="body-part gojo_torso" src="data:image/png;base64,%s" />
+            <img class="body-part gojo_left_leg" src="data:image/png;base64,{left_leg_data}" />
+            <img class="body-part gojo_right_leg" src="data:image/png;base64,{right_leg_data}" />
+            <img class="body-part gojo_torso" src="data:image/png;base64,{torso_data}" />
         </div>
     </div>
-    ''' % (gojo_left, gojo_right, gojo_torso),
+    '''.format(left_leg_data=gojo_left, right_leg_data=gojo_right, torso_data=gojo_torso),
     unsafe_allow_html=True,
 )
 
