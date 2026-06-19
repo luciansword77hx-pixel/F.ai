@@ -96,9 +96,8 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        /*SWAPED: This is now positioned on the screen's left side*/
-        top: 125px; 
-        left: 12px; 
+        top: 130px; 
+        left: 45px; /*FIX: Shifts only the left leg inward to connect back to the body */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
