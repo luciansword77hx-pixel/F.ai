@@ -41,12 +41,12 @@ st.markdown(
 
     /* Confident Strides: Pivot from top center of thigh sockets */
     @keyframes swingLeftLeg {
-        0%, 100% { transform: rotateZ(12deg); }
-        50% { transform: rotateZ(-12deg); }
+        0%, 100% { transform: rotateZ(10deg); }
+        50% { transform: rotateZ(-11deg); }
     }
     @keyframes swingRightLeg {
-        0%, 100% { transform: rotateZ(-12deg); }
-        50% { transform: rotateZ(12deg); }
+        0%, 100% { transform: rotateZ(-11deg); }
+        50% { transform: rotateZ(10deg); }
     }
 
     @keyframes splashSequence {
@@ -104,7 +104,7 @@ st.markdown(
 
     /* Right leg attached under the torso coat tail */
     .gojo_right_leg {
-        width: 118px;
+        width: 116px;
         height: auto;
         /* SWAPED: This is now positioned on the screen's right side  */
         top: 160px; 
