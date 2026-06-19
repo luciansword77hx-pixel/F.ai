@@ -96,8 +96,8 @@ st.markdown(
         width: 42%;
         height: auto;
         z-index: 2;
-        top: 35%; 
-        left: 20%;
+        top: 24%; /* Pulled up to attach cleanly to the waist */
+        left: 42%; /* Swapped to the correct side */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -106,8 +106,8 @@ st.markdown(
         width: 44%;
         height: auto;
         z-index: 1;
-        top: 35%; 
-        left: 42%;
+        top: 24%; /* Pulled up to attach cleanly to the waist */
+        left: 20%; /* Swapped to the correct side */
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; 
     }
