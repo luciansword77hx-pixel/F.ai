@@ -15,7 +15,7 @@ gojo_left_data = get_base64_image("gojo_left_leg.png")
 gojo_right_data = get_base64_image("gojo_right_leg.png")
 gojo_torso_data = get_base64_image("gojo_torso.png")
 
- st.markdown(
+st.markdown(
     '''
     <style>
     /* 1. Standard Layout Animations */
