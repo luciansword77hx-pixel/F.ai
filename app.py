@@ -97,7 +97,7 @@ st.markdown(
         height: auto;
         z-index: 2;
         top: 130px; 
-        left: 36px; /* FINAL ADJUSTMENT: Moved slightly left to eliminate the inner overlap */
+        left: 50px; /* FINAL ADJUSTMENT: Moved slightly left to eliminate the inner overlap */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
