@@ -96,8 +96,8 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        top: 180px; /* Pulled up from 240px to close the huge gap */
-        left: 125px; /* Swapped from 45px to fix the switched legs */
+        top: 210px; /* Pulled up from 240px to close the huge gap */
+        left: 85px; /* Swapped from 45px to fix the switched legs */
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -107,8 +107,8 @@ st.markdown(
         width: 132px;
         height: auto;
         z-index: 1;
-        top: 180px; /* Pulled up from 240px to close the huge gap */
-        left: 45px; /* Swapped from 125px to fix the switched legs */
+        top: 195px; /* Pulled up from 240px to close the huge gap */
+        left: 110px; /* Swapped from 125px to fix the switched legs */
         transform-origin: top center;
         animation: swingRightLeg 1.4s ease-in-out infinite; 
     }
