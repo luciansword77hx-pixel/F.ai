@@ -14,7 +14,7 @@ st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
     f"""
     <style>
-    /* 1. Define Standard Chat Elements */
+    /* 1. Define Standard Chat Layout Elements */
     @keyframes fadeInUpmessage {{
         from {{ opacity: 0; transform: translateY(12px); }}
         to {{ opacity: 1; transform: translateY(0); }}
@@ -26,55 +26,88 @@ st.markdown(
         100% {{ text-shadow: 0 0 5px #7B2CBF, 0 0 10px #7B2CBF; }}
     }}
 
-    /* Intro Screen Sequence Cover */
+    /* Intro Overlay Screen Master Sequence */
     @keyframes splashSequence {{
         0% {{ opacity: 1; visibility: visible; pointer-events: auto; }}
-        92% {{ opacity: 1; }}
+        90% {{ opacity: 1; }}
         100% {{ opacity: 0; visibility: hidden; pointer-events: none; }}
     }}
 
-    /* Programmed Walking Loop: Moves his whole body position forward and simulates steps */
-    @keyframes gojoPhysicalWalk {{
-        0% {{ left: -300px; transform: translateY(-50%) rotate(0deg); }}
-        /* Micro-tilts left and right simulate weight shifting during walking steps */
-        25% {{ transform: translateY(-50.5%) rotate(-2deg); }}
-        50% {{ transform: translateY(-50%) rotate(2deg); }}
-        75% {{ transform: translateY(-50.5%) rotate(-2deg); }}
-        100% {{ left: 115%; transform: translateY(-50%) rotate(0deg); }}
+/* Moves the entire compiled Gojo puppet across your screen canvas */
+    @keyframes gojoWalkAcross {{
+        0% {{ left: -350px; opacity: 0; }}
+        12% {{ opacity: 1; }}
+        85% {{ opacity: 1; }}
+        100% {{ left: 115%; opacity: 0; }}
     }}
 
-    /* 2. Splash Overlay Canvas Layout */
+    /* Programmed Leg Strides: Swings legs back and forth smoothly from the hip joints */
+    @keyframes swingLeftLeg {{
+        0%, 100% {{ transform: rotate(14deg); }}
+        50% {{ transform: rotate(-14deg); }}
+    }}
+    @keyframes swingRightLeg {{
+        0%, 100% {{ transform: rotate(-14deg); }}
+        50% {{ transform: rotate(14deg); }}
+    }}
+
+    /* 2. Splash Overlay Setup */
     .gojo-splash-overlay {{
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
         background-color: #0d0b11; 
         z-index: 999999;
-        animation: splashSequence 6.0s ease-in-out forwards;
+        animation: splashSequence 6.5s ease-in-out forwards;
     }}
 
-    /* Container holding the photo assets */
-    .gojo-walker-container {{
+/* The assembled master puppet framework body container */
+    .gojo-puppet-container {{
         position: absolute;
-        top: 50%;
-        height: 80vh;
-        width: auto;
-        animation: gojoPhysicalWalk 6.0s linear forwards;
+        top: 45%;
+        height: 75vh;
+        width: 300px;
+        animation: gojoWalkAcross 6.5s linear forwards;
     }}
 
-    .gojo-splash-img {{
-        height: 100%;
-        width: auto;
+    /* Individual body layer attachments */
+    .body-part {{
+        position: absolute;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
-        transform-origin: bottom center;
-        
-        /* High-Definition image rendering settings */
         image-rendering: -webkit-optimize-contrast !important;
         image-rendering: crisp-edges !important;
     }}
 
-    /* 3. Background Settings */
+    .gojo-torso {{
+        width: 100%;
+        height: auto;
+        z-index: 3;
+        top: 0;
+        left: 0;
+    }}
+
+.gojo-left-leg {{
+        width: 42%;
+        height: auto;
+        z-index: 2;
+        top: 48%; /* Anchors exactly at hip joint point */
+        left: 20%;
+        transform-origin: top center;
+        animation: swingLeftLeg 1.4s ease-in-out infinite; /* Slow confident walk timing */
+    }}
+
+    .gojo-right-leg {{
+        width: 44%;
+        height: auto;
+        z-index: 1;
+        top: 48%; /* Anchors exactly at hip joint point */
+        left: 42%;
+        transform-origin: top center;
+        animation: swingRightLeg 1.4s ease-in-out infinite; /* Slow confident walk timing */
+    }}
+
+/* 3. Background Settings */
     .stApp {{
         background-image: url("data:image/png;base64,{bg_base64}") !important;
         background-size: cover !important;
@@ -83,7 +116,7 @@ st.markdown(
         background-attachment: fixed !important;
     }}
 
-    /* 4. Black Chat Boxes + Fade-In Animation */
+    /* 4. Chat Boxes Styling */
     .stChatMessage {{
         background-color: #000000 !important;
         border-radius: 12px;
@@ -91,38 +124,21 @@ st.markdown(
         animation: fadeInUpmessage 0.4s ease-out forwards;
     }}
 
-    /* 5. Purple Pulsing Glow for Title Text */
+    /* 5. Title Styling */
     h1 {{
         color: #ffffff !important;
         animation: purpleGlow 3s infinite ease-in-out !important;
     }}
     </style>
-    <!-- HTML & Programmed Layout to load your image and animate the walking stride -->
+
+<!-- Assembled Puppet Rig drawing the independent base64 encoded parts -->
     <div class="gojo-splash-overlay">
-        <div class="gojo-walker-container">
-            <img class="gojo-splash-img" id="gojoAsset" src="data:image/png;base64,{base64.b64encode(open('gojo_body.png', 'rb').read()).decode()}" />
+        <div class="gojo-puppet-container">
+            <img class="body-part gojo-left-leg" src="data:image/png;base64,{base64.b64encode(open('gojo_left_leg.png', 'rb').read()).decode()}" />
+            <img class="body-part gojo-right-leg" src="data:image/png;base64,{base64.b64encode(open('gojo_right_leg.png', 'rb').read()).decode()}" />
+            <img class="body-part gojo-torso" src="data:image/png;base64,{base64.b64encode(open('gojo_torso.png', 'rb').read()).decode()}" />
         </div>
     </div>
-
-    <script>
-    // Programmatic skeleton limb distortion logic to simulate actual leg/hip strides
-    const gojo = document.getElementById('gojoAsset');
-    let frame = 0;
-    
-    function animateWalk() {{
-        frame += 0.15;
-        // Uses mathematical sine waves to rhythmically squash and stretch the image base, making his legs swing
-        const scaleY = 1 + Math.sin(frame) * 0.02;
-        const skewX = Math.cos(frame) * 3; 
-        
-        if (gojo) {{
-            gojo.style.transform = scaleY(${{scaleY}}) skewX(${{skewX}}deg);
-        }}
-        requestAnimationFrame(animateWalk);
-    }}
-    // Triggers the coded animation cycle on page load
-    setTimeout(animateWalk, 100);
-    </script>
     """,
     unsafe_allow_html=True,
 )
