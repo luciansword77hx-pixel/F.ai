@@ -11,17 +11,16 @@ st.markdown(
     .stApp {
         background-color: #1a1525 !important;
     }
-    /* Styles the chat message boxes nicely */
+    /* Styles the chat message boxes to match the Gojo background */
     .stChatMessage {
-        background-color: #251f35 !important;
+        background-color: #1a1525 !important;
         border-radius: 12px;
         border: 1px solid #3d3255;
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
-
 st.caption("Hello there , your Gojo is waitin for ya.")
 
 # 2. API Key Setup
@@ -73,7 +72,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     if message["role"] != "system":
         gojo_img = "https://justwatch.com"
-        avatar_icon = gojo_img if message["role"] == "assistant" else "👤"
+        avatar_icon = gojo_img if message["role"] == "assistant" else "🌷"
         with st.chat_message(message["role"], avatar=avatar_icon):
             st.write(message["content"])
             
