@@ -34,12 +34,12 @@ st.markdown(
     }}
 
 /* Moves the entire compiled Gojo puppet across your screen canvas */
-    @keyframes gojoWalkAcross {
-    0% { transform: translateX(-100vw); opacity: 0; }
-    12% { opacity: 1; }
-    85% { opacity: 1; }
-    100% { transform: translateX(115vw); opacity: 0; }
-}
+    @keyframes gojoWalkAcross {{
+        0% {{ transform: translateX(-100vw); opacity: 0; }}
+        12% {{ opacity: 1; }}
+        85% {{ opacity: 1; }}
+        100% {{ transform: translateX(115vw); opacity: 0; }}
+    }}
 
     /* Programmed Leg Strides: Swings legs back and forth smoothly from the hip joints */
     @keyframes swingLeftLeg {{
