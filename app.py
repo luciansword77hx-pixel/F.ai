@@ -96,7 +96,7 @@ st.markdown(
         width: 126px;
         height: auto;
         z-index: 2;
-        top: 137px; 
+        top: 142px; 
         left: 55px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
@@ -104,7 +104,7 @@ st.markdown(
 
     /* Right leg attached under the torso coat tail */
     .gojo_right_leg {
-        width: 132px;
+        width: 142px;
         height: auto;
         /* SWAPED: This is now positioned on the screen's right side  */
         top: 137px; 
