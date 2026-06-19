@@ -71,7 +71,7 @@ if "messages" not in st.session_state:
 # Display chat history on screen
 for message in st.session_state.messages:
     if message["role"] != "system":
-        gojo_img = "https://justwatch.com"
+        gojo_img = "gojo.png"
         avatar_icon = gojo_img if message["role"] == "assistant" else "🌷"
         with st.chat_message(message["role"], avatar=avatar_icon):
             st.write(message["content"])
@@ -92,6 +92,6 @@ if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
     
     ai_response = completion.choices[0].message.content
     
-    with st.chat_message("assistant", avatar="https://imgur.com"):
+    with st.chat_message("assistant", avatar="gojo.png"):
         st.write(ai_response)
     st.session_state.messages.append({"role": "assistant", "content": ai_response})
