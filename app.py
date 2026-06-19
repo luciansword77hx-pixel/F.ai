@@ -1,26 +1,38 @@
 import streamlit as st
 from groq import Groq
+import base64
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+bg_base64 = get_base64_image("bg.png")
 
 # 1. Page Configuration
 st.set_page_config(page_title="f.ai", layout="centered")
 st.title("🎀🍷 f.ai - Fictional AI")
 st.markdown(
-    """
+    f"""
     <style>
-    /* Changes background to a sleek Gojo dark purple theme */
-    .stApp {
-        background-color: #1a1525 !important;
-    }
-    /* Styles the chat message boxes to match the Gojo background */
-    .stChatMessage {
+    /* Changes background to your local Gojo bg.png image */
+    .stApp {{
+        background-image: url("data:image/png;base64,{bg_base64}") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }}
+    /* Styles the chat message boxes to be solid black */
+    .stChatMessage {{
         background-color: #000000 !important;
         border-radius: 12px;
         border: 1px solid #3d3255;
-    }
+    }}
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 st.caption("Hello there , your Gojo is waitin for ya.")
 
 # 2. API Key Setup
