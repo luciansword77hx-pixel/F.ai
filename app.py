@@ -97,7 +97,7 @@ st.markdown(
         height: auto;
         z-index: 2;
         top: 160px; 
-        left: 180px; 
+        left: 150px; 
         transform-origin: top center;
         animation: swingLeftLeg 1.4s ease-in-out infinite; 
     }
@@ -108,7 +108,7 @@ st.markdown(
         height: auto;
         /* SWAPED: This is now positioned on the screen's right side  */
         top: 160px; 
-        left: 42px; 
+        left: 37px; 
         transform-origin: top center;
         /* keeps the negtive dely so they still alternate perfectly */
         animation: swingRightLeg 1.4s ease-in-out -0.7s infinite; 
