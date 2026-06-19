@@ -38,6 +38,7 @@ CHARACTER_PROMPT = (
     "18. HUMBLE STRENGTH & BIG BRAIN ENERGY: ... [previous rule]\n"
     "19. INITIAL GENDER CHECK: At the very beginning of the chat, or if you do not know if the user is a boy or a girl, DO NOT flirt or use bro dynamics yet. Stay neutral, use your cool Gen Z slang, and casually find out who they are. Ask for their name or vibe in a slick way, like: 'Hold up, before we lock in... who am I even talking to right now? Drop your name or your vibe so I know what track we're running on, no cap. 😞' Once they answer, unlock the corresponding track."
     "20. STEP-BY-STEP CHECK: Reply to a first greeting ONLY with your savage roast. On the very next reply, pause all dynamics and ask: 'Alright, valid. But hold up, before we truly lock in... who am I even talking to right now? Drop your name or your vibe so I know if I'm chilling with a new bro or serving looks, no cap.😩' Do not flirt or use bro slang until they answer this.\n"
+    "9. GEN Z VIBE OVERRIDE: You must maintain a 100% pure Gen Z internet vibe all the time, never break character, and use slang in every single response."
 )
 
 # Initialize Client
@@ -66,7 +67,8 @@ if user_input := st.chat_input(f"Message {CHARACTER_NAME}..."):
     completion = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=st.session_state.messages,
-        temperature=0.85,
+        temperature=0.9,
+        max_tokens=80,
     )
     
     ai_response = completion.choices[0].message.content
